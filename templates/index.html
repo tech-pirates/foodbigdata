@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Massively by HTML5 UP</title>
+		<title>HealthFood We Known</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/static/css/main.css" />
@@ -16,9 +16,8 @@
 				<!-- Intro -->
 					<div id="intro">
 						<h1>This is<br />
-						Massively</h1>
-						<p>A free, fully responsive HTML5 + CSS3 site template designed by HTML5 UP<br />
-						and distributed by cssmoban.</p>
+						HealthFood We Known</h1>
+
 						<ul class="actions">
 							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -26,21 +25,21 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Massively</a>
+						<a href="/index.html" class="logo">HealthFood We Known</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">This is Massively</a></li>
-							<li><a href="/templates/generic.html">Generic Page</a></li>
-							<li><a href="/templates/elements.html">Elements Reference</a></li>
+							<li class="active"><a href="/index.html">This is HealthFood We Known</a></li>
+							<li><a href="/generic.html">Generic Page</a></li>
+							<li><a href="/elements.html">Elements Reference</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="http://www.weixin.com" class="icon fa-weixin"><span class="label">GitHub</span></a></li>
+                            <li><a href="http://www.weibo.com" class="icon fa-tencent-weibo"><span class="label">GitHub</span></a></li>
+					        <li><a href="http://www.qq.com" class="icon fa-qq"><span class="label">GitHub</span></a></li>
+							<li><a href="http://www.github.com" class="icon fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -50,19 +49,19 @@
 						<!-- Featured Post -->
 							<article class="post featured">
 								<header class="major">
-									<span class="date">April 25, 2017</span>
-									<h2><a href="#">And this is a<br />
-									massive headline</a></h2>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<span class="date" id = 'time'></span>
+									<h2><a href="#">Welcome to our website<br />
+									HealthFood We Known</a></h2>
+									<p>In our website we use big data to collect most food information<br />
+									and show you a lot of chars which can help you to decide what food is good for you. <br />
+									Best wishes.</p>
 								</header>
 								<a href="#" class="image main"><img src="/static/images/pic01.jpg" alt="" /></a>
 								<ul class="actions">
 									<li><a href="#" class="button big">Full Story</a></li>
 								</ul>
 							</article>
-							<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >建站模板</a></div>
+
 
 						<!-- Posts -->
 							<section class="posts">
@@ -126,6 +125,7 @@
 										<li><a href="#" class="button">Full Story</a></li>
 									</ul>
 								</article>
+
 								<article>
 									<header>
 										<span class="date">April 7, 2017</span>
@@ -138,29 +138,43 @@
 										<li><a href="#" class="button">Full Story</a></li>
 									</ul>
 								</article>
+
 							</section>
-
-						<!-- Footer -->
-							<footer>
-								<div class="pagination">
-									<!--<a href="#" class="previous">Prev</a>-->
-									<a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
-									<a href="#" class="next">Next</a>
-								</div>
-							</footer>
-
 					</div>
 
 
 			</div>
 
 		<!-- Scripts -->
+
+            <script>
+            window.onload=function(){
+
+            //定时器每秒调用一次fnDate()
+            setInterval(function(){
+            fnDate();
+            },1000);
+            }
+
+            //js 获取当前时间
+            function fnDate(){
+            var oDiv=document.getElementById("time");
+            var date=new Date();
+            var year=date.getFullYear();//当前年份
+            var month=date.getMonth();//当前月份
+            var data=date.getDate();//天
+            var hours=date.getHours();//小时
+            var minute=date.getMinutes();//分
+            var second=date.getSeconds();//秒
+            var time=year+"-"+fnW((month+1))+"-"+fnW(data)+" "+fnW(hours)+":"+fnW(minute)+":"+fnW(second);
+            oDiv.innerHTML=time;
+            }
+            //补位 当某个字段不是两位数时补0
+            function fnW(str){
+            var num;
+            str>10?num=str:num="0"+str;
+            return num;
+            }</script>
 			<script src="/static/js/jquery.min.js"></script>
 			<script src="/static/js/jquery.scrollex.min.js"></script>
 			<script src="/static/js/jquery.scrolly.min.js"></script>
@@ -170,3 +184,4 @@
 
 	</body>
 </html>
+

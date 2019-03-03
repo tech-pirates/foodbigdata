@@ -7,11 +7,15 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
-@app.route('/templates/generic.html')
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
+
+@app.route('/generic.html')
 def genic():
     return render_template('generic.html')
 
-@app.route('/templates/elements.html')
+@app.route('/elements.html')
 def elements():
     return render_template('elements.html')
 
