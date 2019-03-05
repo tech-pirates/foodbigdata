@@ -1,4 +1,4 @@
-var dom = document.getElementById("container1");
+var dom = document.getElementById("containerPlace");
 var myChart = echarts.init(dom);
 var app = {};
 option = null;
@@ -59,7 +59,7 @@ function genData() {
     var seriesDataTmp = []
 
     $.ajax({
-        url: "/vitamin",
+        url: "/place",
         type: 'POST',
         data: {},
         dataType: 'json',
@@ -84,12 +84,9 @@ function genData() {
           });
         },
         error: function () {
-            alert("Chart1 error")
+            alert("ChartPlace error")
         }
     });
 
     ///最重要的几个数值
 }
-
-
-
