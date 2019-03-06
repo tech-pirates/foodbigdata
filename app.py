@@ -23,6 +23,10 @@ def generic():
 def elements():
     return render_template('rankSearch.html')
 
+@app.route('/radar.html')
+def radarHTML():
+    return render_template('radar.html')
+
 
 # @app.route('/T123', methods=['GET', 'POST'])
 # def T123():
@@ -46,7 +50,7 @@ def vitamin():
             for element in legendData:
                 i = i+1
                 sqlStr = "select foodNumber from vitamin where vName = '" + element +"'"
-                resultsTupleList = sql.select(sqlStr)
+                resultsTupleList = sql.select(sqlStr , "HD")
                 value = int(resultsTupleList[0][0])
                 cell = [element, value]
                 seriesData.append(cell)
@@ -115,7 +119,31 @@ def initData():
         }
         return jsonify(dic)
 
-
+@app.route('/radar', methods=['GET', 'POST'])
+def radar():
+    if request.method == 'POST':
+        sqlStr = "select countries_en,energy_100g,fat_100g,proteins_100g,fiber_100g,starch_100g,sugars_100g from radar"
+        resultsTupleList = sql.select(sqlStr , "HD")
+        dataChina = []
+        dataRussia = []
+        dataFrance = []
+        for elements in resultsTupleList:
+            l  = list(elements)
+            if l[0] == "China":
+                l.pop(0)
+                dataChina.append(l)
+            elif l[0] == "Russia":
+                l.pop(0)
+                dataRussia.append(l)
+            elif l[0] == "France":
+                l.pop(0)
+                dataFrance.append(l)
+        dic = {
+            "dataChina" : dataChina,
+            "dataFrance" : dataFrance,
+            "dataRussia" : dataRussia
+        }
+        return jsonify(dic)
 
 
 if __name__ == '__main__':

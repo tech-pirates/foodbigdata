@@ -6,12 +6,11 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="/static/css/main.css"/>
-    <link href="/static/css/bootstrap.css" rel="stylesheet">
     <noscript>
         <link rel="stylesheet" href="/static/css/noscript.css"/>
     </noscript>
 </head>
-<body class="is-loading" onload="search()">
+<body class="is-loading">
 
 <!-- Wrapper -->
 <div id="wrapper">
@@ -25,9 +24,9 @@
     <nav id="nav">
         <ul class="links">
             <li><a href="/index.html">Home Page</a></li>
-            <li><a href="/vitamin.html">vitamin</a></li>
-            <li class="active"><a href="/rankSearch.html">Rank of foods</a></li>
-            <li><a href="/radar.html"> radar info</a></li>
+            <li ><a href="/generic.html">vitamin</a></li>
+            <li><a href="/rankSearch.html">Rank of foods</a></li>
+            <li class="active"><a href="/radar.html"> radar info</a></li>
         </ul>
         <ul class="icons">
             <li><a href="http://www.weixin.com" class="icon fa-weixin"><span class="label"></span></a></li>
@@ -39,22 +38,11 @@
 
     <!-- Main -->
     <div id="main">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <input type="text" class="form-control" id="goods" placeholder="需要查询的原料">
-                </div>
-                <div class="col-md-2">
-                    <button onclick="search()">Search</button>
-                </div>
-            </div>
-        </div>
+        <div id="radar" style="height: 1000px;weight:100%"></div>
 
-
-        <div class="table-wrapper" id="rank">
-
-        </div>
     </div>
+
+
 </div>
 
 <!-- Scripts -->
@@ -66,13 +54,25 @@
     document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/skel.min.js\"></sc" + "ript>")
     document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/util.js\"></sc" + "ript>")
     document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/main.js\"></sc" + "ript>")
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/rankSearch.js\"></sc" + "ript>")
     {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
     {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
     {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
     {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
     {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
 </script>
+{#zDLacU7CMRpVvW2FIM7nTMNBtEbWeaGK#}
+<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+<script defer="defer" type="text/javascript"
+        src="https://api.map.baidu.com/api?v=2.0&ak=zDLacU7CMRpVvW2FIM7nTMNBtEbWeaGK&__ec_v__=20190126"></script>
+<script defer="defer" src="/static/js/radar.js"></script>
 
 
 </body>
