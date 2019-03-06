@@ -4,7 +4,10 @@
         setInterval(function () {
             fnDate();
         }, 1000);
-    }
+
+       initData()
+        //在这里添加所有页面加载时进行的页面
+    };
 
     //js 获取当前时间
     function fnDate() {
@@ -25,4 +28,25 @@
         var num;
         str > 10 ? num = str : num = "0" + str;
         return num;
+    }
+
+    function initData(){
+        $.ajax({
+            url:"/initData",
+            type:'POST',
+            data:{},
+            dataType: 'json',
+            success: function (data) {
+                var dataAll = data["dataAll"];
+                var allergy = data["allergy"];
+                var no_allergy = data["no_allergy"];
+                document.getElementById("dataAll").innerHTML = dataAll;
+                document.getElementById("allergy").innerHTML= allergy;
+                document.getElementById("no_allergy").innerHTML= no_allergy;
+            },
+            error: function () {
+                alert("error")
+            }
+        })
+
     }

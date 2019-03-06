@@ -6,10 +6,15 @@ var data = genData();
 
 myChart.setOption({
     title: {
-        text: '',
-        subtext: '',
+        text: 'Big Data Era of Food',
+        subtext: 'the data of each county',
         x: 'center',
-        fontSize: 100
+        textStyle:{
+            fontSize:40
+        },
+        subtextStyle:{
+            fontSize:24
+        },
     },
     tooltip: {
         trigger: 'item',
@@ -23,11 +28,14 @@ myChart.setOption({
         top: 20,
         bottom: 20,
         data: [],
-        selected: {}
+        selected: {},
+        textStyle:{
+            fontSize:30
+        },
     },
     series: [
         {
-            name: 'numbers',
+            name: 'numbers of food',
             type: 'pie',
             radius: '55%',
             center: ['40%', '50%'],
@@ -36,7 +44,10 @@ myChart.setOption({
                 emphasis: {
                     shadowBlur: 10,
                     shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    label:{
+                        fontSize:20,
+                    },
                 }
             }
         }
