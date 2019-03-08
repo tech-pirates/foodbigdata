@@ -4,6 +4,7 @@ import SQLdatabase as sql
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "dfdfdffdad"
 
+
 @app.route('/')
 def hello_world():
     return render_template('index.html')
@@ -23,6 +24,7 @@ def generic():
 def elements():
     return render_template('rankSearch.html')
 
+
 @app.route('/radar.html')
 def radarHTML():
     return render_template('radar.html')
@@ -39,96 +41,104 @@ def radarHTML():
 def vitamin():
     if request.method == 'POST':
         legendData = []
-        seriesData =[]
+        seriesData = []
         selected = {}
-        try :
+        try:
             sqlStr = "select vName from vitamin"
-            resultsTupleList = sql.select(sqlStr , "HD")
+            resultsTupleList = sql.select(sqlStr, "HD")
             for element in resultsTupleList:
                 legendData.append(element[0])
             i = 0
             for element in legendData:
-                i = i+1
-                sqlStr = "select foodNumber from vitamin where vName = '" + element +"'"
-                resultsTupleList = sql.select(sqlStr , "HD")
+                i = i + 1
+                sqlStr = "select foodNumber from vitamin where vName = '" + element + "'"
+                resultsTupleList = sql.select(sqlStr, "HD")
                 value = int(resultsTupleList[0][0])
                 cell = [element, value]
                 seriesData.append(cell)
                 selected[element] = i < 6
-        except :
+        except:
             print("error in SQL")
         dic = {"legendData": legendData,
                "seriesData": seriesData,
-               "selected" : selected
+               "selected": selected
                }
         return jsonify(dic)
+
 
 @app.route('/place', methods=['GET', 'POST'])
 def place():
     if request.method == 'POST':
         legendData = []
-        seriesData =[]
+        seriesData = []
         selected = {}
-        try :
+        try:
             sqlStr = "select country from countryFoodNumber"
-            resultsTupleList = sql.select(sqlStr , "HD")
+            resultsTupleList = sql.select(sqlStr, "HD")
             for element in resultsTupleList:
                 legendData.append(element[0])
             i = 0
             for element in legendData:
-                i = i+1
-                sqlStr = "select foodNumber from countryFoodNumber where country = '" + element +"'"
-                resultsTupleList = sql.select(sqlStr , "HD")
+                i = i + 1
+                sqlStr = "select foodNumber from countryFoodNumber where country = '" + element + "'"
+                resultsTupleList = sql.select(sqlStr, "HD")
                 value = int(resultsTupleList[0][0])
                 cell = [element, value]
                 seriesData.append(cell)
                 selected[element] = i < 6
-        except :
+        except:
             print("error in SQL")
         dic = {"legendData": legendData,
                "seriesData": seriesData,
-               "selected" : selected
+               "selected": selected
                }
         return jsonify(dic)
 
 
 @app.route('/getRank', methods=['GET', 'POST'])
-def getRank():
+def selectRank():
     if request.method == 'POST':
         goods = request.form.get("goods")
-        goodsTable = ''
-        sqlStr = "select * from " + goodsTable
-        # sqlStr需要修改
-        resultsTupleList = sql.select(sqlStr , "rank")
-        return jsonify(goods)
+        goodsTable = goods + "_100g_rank"
+        sqlStr = "select * from " + goodsTable + " where element_id < 21"
+        resultsTupleList = sql.select(sqlStr, "rank")
+        dic ={}
+        for tupleList in resultsTupleList:
+            tempdic ={}
+            tempdic["element_id"] = tupleList[0]
+            tempdic["element_amount"] = tupleList[1]
+            tempdic["product_name"] = tupleList[2]
+            tempdic["url"] = tupleList[3]
+            dic[str(tupleList[0])] = tempdic
+        return jsonify(dic)
 
-    #
+
 @app.route('/initData', methods=['GET', 'POST'])
 def initData():
     if request.method == 'POST':
         sqlStr = "select * from foodAllergiesNum"
-        # //需要修改
-        resultsTupleList = sql.select(sqlStr , "HD")
+        resultsTupleList = sql.select(sqlStr, "HD")
         dataAll = int(resultsTupleList[0][0])
         allergy = int(resultsTupleList[0][1])
         no_allergy = int(resultsTupleList[0][2])
         dic = {
-            "dataAll":dataAll,
-            "allergy":allergy,
-            "no_allergy":no_allergy
+            "dataAll": dataAll,
+            "allergy": allergy,
+            "no_allergy": no_allergy
         }
         return jsonify(dic)
+
 
 @app.route('/radar', methods=['GET', 'POST'])
 def radar():
     if request.method == 'POST':
         sqlStr = "select countries_en,energy_100g,fat_100g,proteins_100g,fiber_100g,starch_100g,sugars_100g from radar"
-        resultsTupleList = sql.select(sqlStr , "HD")
+        resultsTupleList = sql.select(sqlStr, "HD")
         dataChina = []
         dataRussia = []
         dataFrance = []
         for elements in resultsTupleList:
-            l  = list(elements)
+            l = list(elements)
             if l[0] == "China":
                 l.pop(0)
                 dataChina.append(l)
@@ -139,9 +149,9 @@ def radar():
                 l.pop(0)
                 dataFrance.append(l)
         dic = {
-            "dataChina" : dataChina,
-            "dataFrance" : dataFrance,
-            "dataRussia" : dataRussia
+            "dataChina": dataChina,
+            "dataFrance": dataFrance,
+            "dataRussia": dataRussia
         }
         return jsonify(dic)
 

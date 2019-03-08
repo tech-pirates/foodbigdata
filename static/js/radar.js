@@ -1,6 +1,6 @@
-var dom = document.getElementById("radar");
-var myChart = echarts.init(dom);
-var app = {};
+const dom = document.getElementById("radar");
+const myChart = echarts.init(dom);
+const app = {};
 option = null;
 
 
@@ -66,7 +66,7 @@ myChart.setOption({
 
 });
 var dataChina = [
-    // [55,9,56,0.46,18,6,1],
+
 ];
 var dataRussia = [
 

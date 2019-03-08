@@ -6,7 +6,7 @@ var data = genData();
 
 myChart.setOption({
     title: {
-        text: '',
+        text: 'The number of food which have vitamin',
         subtext: '',
         x: 'center',
         fontSize: 100
@@ -36,7 +36,10 @@ myChart.setOption({
                 emphasis: {
                     shadowBlur: 10,
                     shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    label:{
+                        fontSize:20,
+                    },
                 }
             }
         }
