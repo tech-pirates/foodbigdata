@@ -21,7 +21,7 @@ myChart.setOption({
     },
     legend: {
         bottom: 5,
-        data: ['China',"Russia",'France'],
+        data: ['China','France',"Russia","Switzerland","average"],
         itemGap: 20,
         textStyle: {
             color: '#000',
@@ -65,16 +65,12 @@ myChart.setOption({
     },
 
 });
-var dataChina = [
+let dataChina;
+let dataRussia;
+let dataFrance;
+let dataSw;
+let averageData;
 
-];
-var dataRussia = [
-
-];
-
-var dataFrance = [
-
-];
 $.ajax({
     url: "/radar",
         type: 'POST',
@@ -84,6 +80,9 @@ $.ajax({
             dataFrance = data["dataFrance"];
             dataRussia = data["dataRussia"];
             dataChina = data["dataChina"];
+            dataSw = data["dataSW"];
+            averageData = data["averageData"];
+
             myChart.setOption({
                 series: [
             {
@@ -136,7 +135,41 @@ $.ajax({
                         opacity: 0.05
                     }
                 }
-            }
+            },
+            {
+                name: 'Switzerland',
+                type: 'radar',
+                lineStyle: lineStyle,
+                data: dataSw,
+                symbol: 'none',
+                itemStyle: {
+                    normal: {
+                        color: '#2141D1'
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        opacity: 0.05
+                    }
+                }
+            },
+            {
+                name: 'average',
+                type: 'radar',
+                lineStyle: lineStyle,
+                data: averageData,
+                symbol: 'none',
+                itemStyle: {
+                    normal: {
+                        color: '#F13C4F'
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        opacity: 0.05
+                    }
+                }
+            },
         ]
               });
             },

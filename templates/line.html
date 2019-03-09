@@ -6,6 +6,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="/static/css/main.css"/>
+    <script src="/static/js/echarts.js"></script>
     <noscript>
         <link rel="stylesheet" href="/static/css/noscript.css"/>
     </noscript>
@@ -17,8 +18,10 @@
 
     <!-- Header -->
     <header id="header">
-        <a href="index.html" class="logo">Big Data Era of Food</a>
+        <a href="index.html" class="logo">Massively</a>
     </header>
+
+
 
     <!-- Nav -->
     <nav id="nav">
@@ -26,8 +29,8 @@
             <li><a href="/index.html">Home Page</a></li>
             <li><a href="/vitamin.html">vitamin</a></li>
             <li><a href="/rankSearch.html">Rank of foods</a></li>
-            <li class="active"><a href="/radar.html"> radar info</a></li>
-            <li><a href="/line.html">line</a></li>
+            <li><a href="/radar.html"> radar info</a></li>
+            <li class="active"><a href="/line.html">line</a></li>
         </ul>
         <ul class="icons">
             <li><a href="http://www.weixin.com" class="icon fa-weixin"><span class="label"></span></a></li>
@@ -39,8 +42,9 @@
 
     <!-- Main -->
     <div id="main">
-        <div id="radar" style="height: 1000px;weight:100%"></div>
-
+        <div id="container1" style="height: 750px;weight:100%"></div>
+		<div id="container2" style="height: 750px;weight:100%"></div>
+		
     </div>
 
 
@@ -49,14 +53,14 @@
 <!-- Scripts -->
 {#<script src="/static/js/ajax_test.js"></script>#}
 <script type="text/javascript">
-    document.write("<scr" + "ipt defer=\"defer\"  src =\"/static/js/jquery.min.js\"></sc" + "ript>");
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/jquery.scrollex.min.js\"></sc" + "ript>");
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/jquery.scrolly.min.js\"></sc" + "ript>");
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/skel.min.js\"></sc" + "ript>");
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/util.js\"></sc" + "ript>");
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/main.js\"></sc" + "ript>");
+    document.write("<scr" + "ipt defer=\"defer\"  src =\"/static/js/jquery.min.js\"></sc" + "ript>")
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/jquery.scrollex.min.js\"></sc" + "ript>")
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/jquery.scrolly.min.js\"></sc" + "ript>")
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/skel.min.js\"></sc" + "ript>")
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/util.js\"></sc" + "ript>")
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/main.js\"></sc" + "ript>")
 </script>
-{#zDLacU7CMRpVvW2FIM7nTMNBtEbWeaGK#}
+
 <script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
 <script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
 <script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
@@ -68,7 +72,8 @@
 <script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
 <script defer="defer" type="text/javascript"
         src="https://api.map.baidu.com/api?v=2.0&ak=zDLacU7CMRpVvW2FIM7nTMNBtEbWeaGK&__ec_v__=20190126"></script>
-<script defer="defer" src="/static/js/radar.js"></script>
+<script defer="defer" src="/static/js/Fat.js"></script>
+<script defer="defer" src="/static/js/microelement.js"></script>
 
 
 </body>

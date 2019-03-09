@@ -5,10 +5,11 @@
     <title>Big Data Era of Food</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/main.css"/>
-    <noscript>
-        <link rel="stylesheet" href="/static/css/noscript.css"/>
-    </noscript>
+{#    <noscript>#}
+{#        <link rel="stylesheet" href="/static/css/noscript.css"/>#}
+{#    </noscript>#}
 </head>
 <body class="is-loading">
 
@@ -27,6 +28,7 @@
             <li class="active"><a href="/vitamin.html">vitamin</a></li>
             <li><a href="/rankSearch.html">Rank of foods</a></li>
             <li><a href="/radar.html"> radar info</a></li>
+            <li><a href="/line.html">line</a></li>
         </ul>
         <ul class="icons">
             <li><a href="http://www.weixin.com" class="icon fa-weixin"><span class="label"></span></a></li>
@@ -38,7 +40,19 @@
 
     <!-- Main -->
     <div id="main">
-        <div id="container1" style="height: 1000px;weight:400px"></div>
+        <div >
+            <div class="row">
+                <div id="vitamin"  style="height: 1000px;width:100%"></div>
+            </div>
+            <div class="row">
+                <div id="vitamin1" class="col-md-6" style="height: 600px;width:1000px"></div>
+                <div id="vitamin2" class="col-md-6" style="height: 600px;width:1000px"></div>
+            </div>
+            <div class="row">
+                <div id="vitamin3" class="col-md-6" style="height: 600px;width:400px"></div>
+                <div id="vitamin4" class="col-md-6" style="height: 600px;width:400px"></div>
+            </div>
+        </div>
 
     </div>
 
@@ -46,7 +60,7 @@
 </div>
 
 <!-- Scripts -->
-{#<script src="/static/js/ajax_test.js"></script>#}
+\
 <script type="text/javascript">
     document.write("<scr" + "ipt defer=\"defer\"  src =\"/static/js/jquery.min.js\"></sc" + "ript>")
     document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/jquery.scrollex.min.js\"></sc" + "ript>")
@@ -54,25 +68,27 @@
     document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/skel.min.js\"></sc" + "ript>")
     document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/util.js\"></sc" + "ript>")
     document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/main.js\"></sc" + "ript>")
-    {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
-    {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
-    {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
-    {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
-    {#document.write("<scr"+"ipt src =\"\"></sc"+"ript>")#}
 </script>
 {#zDLacU7CMRpVvW2FIM7nTMNBtEbWeaGK#}
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
 <script defer="defer" type="text/javascript"
         src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
 <script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
 <script defer="defer" type="text/javascript"
         src="https://api.map.baidu.com/api?v=2.0&ak=zDLacU7CMRpVvW2FIM7nTMNBtEbWeaGK&__ec_v__=20190126"></script>
 <script defer="defer" src="/static/js/vitamin.js"></script>
+<script defer="defer" src="/static/js/vitaminCurve.js"></script>
 
 
 </body>

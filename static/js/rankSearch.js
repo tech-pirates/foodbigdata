@@ -12,7 +12,9 @@ checkGoods= function(goods){
         "bicarbonate","potassium","chloride","calcium","phosphorus","iron","magnesium","zinc","copper","manganese","fluoride",
         "selenium","chromium","molybdenum","iodine","caffeine","taurine","ph","fruits_vegetables_nuts","collagen_meat_protein_ratio",
         "cocoa","chlorophyl","carbon_footprint","nutrition_score_fr","nutrition_score_uk","glycemic_index","water_hardness"];
-    goods = "energy";
+
+    if(goods === '')
+        goods = "energy";
     var len = wordList.length;
     var arr = [];
     var reg = new RegExp(goods);
@@ -20,19 +22,29 @@ checkGoods= function(goods){
         //如果字符串中不包含目标字符会返回-1
         if(wordList[i].match(reg)){
             arr.push(wordList[i]);
-            if(arr.length > 1){
+            if(arr.length < 1){
                 return ""
             }
         }
     }
-    return arr[0]
+    var tempLength = arr[0].length;
+    var arrLength = arr.length;
+    var resultIndex = 0;
+    for (var i = 0; i<arrLength; i++){
+        if (arr[i].length < tempLength)
+            resultIndex = i;
+    }
+    return arr[resultIndex]
 };
 
 
 search = function () {
     let goods = document.getElementById("goods").value;
     goods = checkGoods(goods);
-
+    document.getElementById("goods").value = goods;
+    if(goods == ""){
+         alert("please reconfirm your key words")
+    }
     $.ajax({
         url:"/getRank",
         type:'POST',

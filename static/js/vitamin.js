@@ -1,4 +1,4 @@
-var dom = document.getElementById("container1");
+var dom = document.getElementById("vitamin");
 var myChart = echarts.init(dom);
 var app = {};
 option = null;
