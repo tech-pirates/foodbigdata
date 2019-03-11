@@ -65,7 +65,7 @@ def select(SQL='',choice = ""):
         db.close()
         return results
     except RuntimeError:
-        print("123")
+        print("------------------------------------------------")
     except:
         print("Error: unable to fetch data")
         # 关闭数据库连接
