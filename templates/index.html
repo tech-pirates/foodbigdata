@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="/static/css/main.css"/>
     <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/swiper.min.css">
+    <link rel="stylesheet" href="/static/css/animate.min.css">
+    <script defer="defer" src="/static/js/cookie.js"></script>
     <noscript>
         <link rel="stylesheet" href="/static/css/noscript.css"/>
     </noscript>
-    <script type="text/javascript">
-    </script>
 </head>
 <body class="is-loading">
 
@@ -52,9 +53,9 @@
 
     <!-- Main -->
     <div id="main">
-
         <!-- Featured Post -->
         <article class="post featured">
+
             <header class="major">
                 <span class="date" id='time'></span>
                 <h2><a>Welcome to our website<br/>
@@ -62,32 +63,33 @@
                 <p>In our website we use big data to collect most food information<br/>
                     and show you a lot of charts which can help you to decide what food is good for you. <br/>
                     Best wishes.</p>
-                <div class="container">
+                <div>
                     <div class="row">
                         <div class="box col-md-4">
                             <p style="text-Align:center">The number of foods containing additives </p>
-                            <h2 id = "dataAll">100000</h2>
+                            <h2 id="dataAll">100000</h2>
                         </div>
                         <div class="box col-md-4">
                             <p style="text-Align:center">The number of foods that contain allergens</p>
-                            <h2 id = "allergy">100000</h2>
+                            <h2 id="allergy">100000</h2>
                         </div>
                         <div class="box col-md-4">
                             <p style="text-Align:center">The number of foods that do not contain allergens</p>
-                            <h2 id = "no_allergy">100000</h2>
+                            <h2 id="no_allergy">100000</h2>
                         </div>
+                    </div>
+                    <h1>The food you may like</h1>
+                    <div id="recommend">
                     </div>
                 </div>
             </header>
         </article>
-
         <!-- Posts -->
         <div id="containerPlace" style="height: 1000px;width:100%"></div>
-
     </div>
 
-
 </div>
+
 
 <!-- Scripts -->
 <script type="text/javascript">
@@ -100,19 +102,41 @@
     document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/main.js\"></sc" + "ript>")
 </script>
 {#zDLacU7CMRpVvW2FIM7nTMNBtEbWeaGK#}
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
 <script defer="defer" type="text/javascript"
         src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-<script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script defer="defer" type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
 <script defer="defer" type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
 <script defer="defer" type="text/javascript"
         src="https://api.map.baidu.com/api?v=2.0&ak=zDLacU7CMRpVvW2FIM7nTMNBtEbWeaGK&__ec_v__=20190126"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
 <script defer="defer" src="/static/js/chartPlace.js"></script>
+<script defer="defer" src="/static/js/trace.js"></script>
+
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        on: {
+            init: function () {
+                this.emit('slideChangeTransitionEnd');//在初始化时触发一次slideChangeTransitionEnd事件
+            },
+            slideChangeTransitionEnd: function () {
+                this.slides.eq(this.activeIndex).find('.ani').removeClass('ani');//动画只展示一次
+            }
+        }
+    });
+
+</script>
 </body>
 </html>
 

@@ -7,7 +7,7 @@ var data = genData();
 myChart.setOption({
     title: {
         text: 'Big Data Era of Food',
-        subtext: 'the data of each county',
+        subtext: 'the categories of food in each country',
         x: 'center',
         textStyle:{
             fontSize:40

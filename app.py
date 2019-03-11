@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, make_response
 import SQLdatabase as sql
 
 app = Flask(__name__)
@@ -98,7 +98,7 @@ def selectRank():
     if request.method == 'POST':
         goods = request.form.get("goods")
         goodsTable = goods + "_100g_rank"
-        sqlStr = "select * from " + goodsTable + " where element_id < 21"
+        sqlStr = "select * from " + goodsTable + " order by element_amount DESC"
         resultsTupleList = sql.select(sqlStr, "rank")
         dic = {}
         for tupleList in resultsTupleList:
@@ -317,6 +317,33 @@ def getCurve():
            "data4": data4,
            }
     return jsonify(dic)
+
+
+@app.route('/trace', methods=['GET', 'POST'])
+def trace():
+    if request.method == 'POST':
+        cookie = request.form.get("cookie")
+        productName = request.form.get("name")
+        sqlStr = "insert into clinkProduct(cookie,foodCode) values ('"+cookie+"','"+str(productName)+"')"
+        sql.insert(sqlStr, "HD")
+        dict ={}
+        return jsonify(dict)
+
+
+@app.route('/getRecommed', methods=['GET', 'POST'])
+def getRecommed():
+    if request.method == 'POST':
+        cookie = request.form.get("cookie")
+        sqlStr = "select * from commendedFood where cookie = '"+ str(cookie)+"' order by FoodWeight DESC"
+        resultsTupleList = sql.select(sqlStr, "HD")
+        dic = {}
+        for tupleList in resultsTupleList:
+            tempdic = {}
+            tempdic["element_id"] = tupleList[0]
+            tempdic["product_name"] = tupleList[1]
+            tempdic["url"] = tupleList[3]
+            dic[str(tupleList[0])] = tempdic
+        return jsonify(dic)
 
 
 if __name__ == '__main__':
