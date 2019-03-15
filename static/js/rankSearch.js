@@ -22,10 +22,10 @@ checkGoods = function (goods) {
         //如果字符串中不包含目标字符会返回-1
         if (wordList[i].match(reg)) {
             arr.push(wordList[i]);
-            if (arr.length < 1) {
-                return ""
-            }
         }
+    }
+    if (arr.length < 1) {
+                return ""
     }
     var tempLength = arr[0].length;
     var arrLength = arr.length;

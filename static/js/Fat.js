@@ -6,7 +6,7 @@ var data = genData();
 option = null;
 myChart1.setOption({
 	title: {
-		text: 'Fat(Joule) in 100g Food',
+		text: 'Fat in 100g Food',
 		x:'center',
 		textStyle: {
 			color:'black',
@@ -65,7 +65,7 @@ myChart1.setOption({
         }
     ],
     series: [{
-        name: 'Joule',
+        name: 'numbers',
         type: 'line',
         smooth: true
     }]

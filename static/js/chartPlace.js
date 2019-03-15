@@ -30,7 +30,7 @@ myChart.setOption({
         data: [],
         selected: {},
         textStyle:{
-            fontSize:30
+            fontSize:10
         },
     },
     series: [

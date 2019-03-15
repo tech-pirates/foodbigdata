@@ -98,16 +98,24 @@ def selectRank():
     if request.method == 'POST':
         goods = request.form.get("goods")
         goodsTable = goods + "_100g_rank"
-        sqlStr = "select * from " + goodsTable + " order by element_amount DESC"
+        # select *
+        # from element_rank.energy_100g_rank order
+        # by
+        # CAST(element_rank.energy_100g_rank.element_amount
+        # AS
+        # DECIMAL(10, 5)) DESC
+        sqlStr = "select * from " + goodsTable + " order by CAST("+ goodsTable +".element_amount as DECIMAL(20, 10)) DESC"
         resultsTupleList = sql.select(sqlStr, "rank")
         dic = {}
+        i= 0
         for tupleList in resultsTupleList:
             tempdic = {}
             tempdic["element_id"] = tupleList[0]
             tempdic["element_amount"] = tupleList[1]
             tempdic["product_name"] = tupleList[2]
             tempdic["url"] = tupleList[3]
-            dic[str(tupleList[0])] = tempdic
+            dic[str(i)] = tempdic
+            i = i +1
         return jsonify(dic)
 
 
@@ -336,6 +344,9 @@ def getRecommed():
         cookie = request.form.get("cookie")
         sqlStr = "select * from commendedFood where cookie = '"+ str(cookie)+"' order by FoodWeight DESC"
         resultsTupleList = sql.select(sqlStr, "HD")
+        if len(resultsTupleList) == 0:
+            sqlStr = "select * from commendedFood where cookie = '" + "wyt" + "' order by FoodWeight DESC"
+            resultsTupleList = sql.select(sqlStr, "HD")
         dic = {}
         for tupleList in resultsTupleList:
             tempdic = {}
@@ -347,4 +358,4 @@ def getRecommed():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

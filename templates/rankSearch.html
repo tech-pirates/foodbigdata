@@ -5,8 +5,19 @@
     <title>Big Data Era of Food</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
     <link rel="stylesheet" href="/static/css/main.css"/>
-    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="/static/js/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="/static/js/bootstrap.js"
+            crossorigin="anonymous"></script>
+
     <noscript>
         <link rel="stylesheet" href="/static/css/noscript.css"/>
     </noscript>
@@ -27,13 +38,19 @@
             <li><a href="/index.html">Home Page</a></li>
             <li><a href="/vitamin.html">vitamin</a></li>
             <li class="active"><a href="/rankSearch.html">Rank of foods</a></li>
-            <li><a href="/radar.html"> radar info</a></li>
-            <li><a href="/line.html">line</a></li>
+            <li><a href="/radar.html">country info</a></li>
+            <li><a href="/line.html">others</a></li>
         </ul>
         <ul class="icons">
-            <li><a href="http://www.weixin.com" class="icon fa-weixin"><span class="label"></span></a></li>
-            <li><a href="http://www.weibo.com" class="icon fa-tencent-weibo"><span class="label"></span></a></li>
-            <li><a href="http://www.qq.com" class="icon fa-qq"><span class="label"></span></a></li>
+            <li>
+                <div class="icon fa-weixin" data-toggle="modal" data-target="#myModal"><span class="label"></span></div>
+            </li>
+            <li><a href="http://service.weibo.com/share/share.php?url=http://127.0.0.1:5000/"
+                   class="icon fa-tencent-weibo"><span
+                    class="label"></span></a></li>
+            <li><a href="https://connect.qq.com/widget/shareqq/index.html?url=http://127.0.0.1:5000/"
+                   class="icon fa-qq"><span
+                    class="label"></span></a></li>
             <li><a href="http://www.github.com" class="icon fa-github"><span class="label"></span></a></li>
         </ul>
     </nav>
@@ -57,16 +74,33 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="width: 256px;">
+        <div class="modal-content">
+            <div class="modal-body" align="center" style="height: 256px;">
+
+                <h6>Scan the code to browse the site on phone</h6>
+                <br>
+                <img src="/static/images/OurWebsite.png" width="128px" height="128px">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Scripts -->
+
 <script type="text/javascript">
-    document.write("<scr" + "ipt defer=\"defer\"  src =\"/static/js/jquery.min.js\"></sc" + "ript>")
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/jquery.scrollex.min.js\"></sc" + "ript>")
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/jquery.scrolly.min.js\"></sc" + "ript>")
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/skel.min.js\"></sc" + "ript>")
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/util.js\"></sc" + "ript>")
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/main.js\"></sc" + "ript>")
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/rankSearch.js\"></sc" + "ript>")
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/cookie.js\"></sc" + "ript>")
-    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/trace.js\"></sc" + "ript>")
+    document.write("<scr" + "ipt defer=\"defer\"  src =\"/static/js/jquery.min.js\"></sc" + "ript>");
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/jquery.scrollex.min.js\"></sc" + "ript>");
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/jquery.scrolly.min.js\"></sc" + "ript>");
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/skel.min.js\"></sc" + "ript>");
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/util.js\"></sc" + "ript>");
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/main.js\"></sc" + "ript>");
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/rankSearch.js\"></sc" + "ript>");
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/cookie.js\"></sc" + "ript>");
+    document.write("<scr" + "ipt defer=\"defer\" src =\"/static/js/trace.js\"></sc" + "ript>");
 </script>
 
 

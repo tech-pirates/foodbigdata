@@ -19,7 +19,7 @@ function randomCookie(length) {
     if (str.length>=length) {
         return str.substr(0, length);
     }
-    str += random(length-str.length);
+    str += randomCookie(length-str.length);
     return str;
 }
 

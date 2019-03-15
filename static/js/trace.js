@@ -1,5 +1,3 @@
-
-
 function trace(trace) {
     var cookie = getCookie("username");
     $.ajax({
